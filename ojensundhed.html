@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Louis Nielsen PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a5f55">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-body-wrapper">
+
+        <div class="banner"><p>Louis Nielsen</p></div>
+
+        <div class="dashboard-title">
+            <h2>Velkommen, admin</h2>
+        </div>
+
+        <div class="dashboard-bokse-wrapper">
+            <div class="dashboard-bokse">
+
+                <!-- 3.1 Mine briller -->
+                <div class="dashboard-boks">
+                    <button type="button" class="boks-knap"><span class="boks-tekst"><img src="icons/eyeglasses.png" class="ikon" alt="">Mine briller</span><span class="pil">+</span></button>
+                    <div class="boks-indhold">
+                        <ul>
+                            <li><a href="brille-1.html">Ray-Ban RB5121 – Købt 12/02/2024</a></li>
+                            <li><a href="brille-2.html">Specsavers LUX Classic – Købt 21/10/2023</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3.2 Synstest & aftaler -->
+                <div class="dashboard-boks">
+                    <button type="button" class="boks-knap"><span class="boks-tekst"><img src="icons/eye.png" class="ikon" alt="">Synstest &amp; aftaler</span><span class="pil">+</span></button>
+                    <div class="boks-indhold">
+                        <p>Seneste synstest: 05/06/2024</p>
+                        <p>Anbefalet kontrol: Om 6 måneder</p>
+                    </div>
+                </div>
+
+                <!-- 3.3 Abonnementer -->
+                <div class="dashboard-boks">
+                    <button type="button" class="boks-knap"><span class="boks-tekst"><img src="icons/contact-lens.png" class="ikon" alt="">Abonnementer</span><span class="pil">+</span></button>
+                    <div class="boks-indhold">
+                        <p>Kontaktlinse-abonnement: Aktivt</p>
+                        <p>Næste levering: 27/03/2025</p>
+                    </div>
+                </div>
+
+                <!-- 3.4 Profil & oplysninger -->
+                <div class="dashboard-boks">
+                    <button type="button" class="boks-knap"><span class="boks-tekst"><img src="icons/user.png" class="ikon" alt="">Profil &amp; oplysninger</span><span class="pil">+</span></button>
+                    <div class="boks-indhold">
+                        <p>Navn: Admin Bruger</p>
+                        <p>Adresse: Eksempelvej 12, 5000 Odense</p>
+                        <p>E-mail: admin@louinielsen.dk</p>
+                        <p>Telefon: 12 34 56 78</p>
+                        <button type="button" class="rediger-knap">Rediger profil</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Loyalitetsprogram -->
+        <div class="loyalitet-wrapper">
+            <div class="loyalitet">
+
+                <div class="loyalitet-indhold">
+
+                    <h3>Loyalitetsprogram</h3>
+
+                    <div class="loyalitet-bar">
+                        <div class="loyalitet-bar-fill" style="width: 65%;">
+                            <div class="loyalitet-markor"></div>
+                        </div>
+                    </div>
+
+                    <div class="loyalitet-milepaele">
+                        <span>50</span>
+                        <span>100</span>
+                        <span>150</span>
+                    </div>
+
+                    <div class="loyalitet-info">
+                        <p><strong>Samlede point:</strong> 120</p>
+                        <p><strong>Nuværende status:</strong> Sølv</p>
+                        <p><strong>Næste status:</strong> Guld (150 point)</p>
+                        <p><strong>Næste fordel:</strong> 10% på udvalgte stel</p>
+                    </div>
+
+                </div>
+
+            </div>    
+        </div>
+
+        <!-- Navigation -->
+        <div class="bottom-nav">
+            <a href="dashboard.html" class="nav-item"><img src="icons/home.svg" class="nav-icon"></a>
+            <a href="ojensundhed.html" class="nav-item active"><img src="icons/hospital.svg" class="nav-icon"></a>
+            <a href="prov-brille.html" class="nav-item"><img src="icons/camera.svg" class="nav-icon"></a>
+            <a href="nyheder.html" class="nav-item"><img src="icons/newspaper.svg" class="nav-icon"></a>
+        </div>
+
+    </div>
+
+<script>
+document.querySelectorAll(".boks-knap").forEach(knap => {
+    knap.addEventListener("click", () => {
+
+        const box = knap.parentElement;
+        const content = box.querySelector(".boks-indhold");
+
+        box.classList.toggle("open");
+
+        if (box.classList.contains("open")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            box.querySelector(".pil").textContent = "−";
+        } else {
+            content.style.maxHeight = 0;
+            box.querySelector(".pil").textContent = "+";
+        }
+
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Louis Nielsen PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a5f55">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-body-wrapper">
+
+        <div class="banner"><p>Louis Nielsen</p></div>
+
+        <div class="login-form-wrapper">
+
+            <form class="login-form">
+
+                <!-- Titel -->
+                <h2>Kundeprofil</h2>
+
+                <!-- Inputs -->
+                <label for="kunde-id">Kundenummer</label>
+                <input id="kunde-id" type="text" name="kunde-id" placeholder="LN12345" required>
+
+                <label for="adgangskode">Adgangskode</label>
+                <input id="adgangskode" type="password" name="adgangskode" placeholder="••••••••" required>
+
+                <!-- Glemt adgangskode -->
+                <div class="glemt-kode-wrapper">
+                    <a href="#">Glemt adgangskode?</a>
+                </div>
+
+                <!-- Husk mig -->
+                <div class="husk-mig-wrapper">
+                    <input type="checkbox" id="husk-mig">
+                    <label for="husk-mig">Husk mig på denne enhed</label>
+                </div>
+
+                <!-- Knapper -->
+                <button type="submit">Log ind</button>
+                <button type="button">Log ind med MitID</button>
+
+                <!-- Separator -->
+                <div class="separator">eller</div>
+
+                <!-- Opret profil -->
+                <a href="#">Opret profil</a>
+
+            </form>
+
+        </div>
+
+        <div class="fordele-wrapper">
+
+            <div class="fordele">
+                <h3>Fordele ved en Louis Nielsen Profil:</h3>
+                <ul>
+                    <li>Overblik over dine synstest og aftaler</li>
+                    <li>Dine briller og abonnementer samlet et sted</li>
+                    <li>Loyalitetsprogram med eksklusive tilbud</li>
+                    <li>Online servicering og påmindelser</li>
+                </ul>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <script>
+    document.querySelector(".login-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const id = document.getElementById("kunde-id").value.trim();
+        const pwd = document.getElementById("adgangskode").value.trim();
+
+        if (id === "admin" && pwd === "admin") {
+            window.location.href = "dashboard.html";
+        }
+    });
+    </script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+    }
+    </script>
+</body>
+</html>
