@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Louis Nielsen PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a5f55">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-body-wrapper">
+
+        <div class="banner"><p>Louis Nielsen</p></div>
+
+        <div class="dashboard-title">
+            <h2>Øjensundheds-tracker</h2>
+        </div>
+
+        <!-- Øjensundheds-tracker -->
+        <div class="graph-wrapper">
+
+            <div class="graph-container">
+                <p class="graph-title">Venstre øje (Styrke)</p>
+                <svg class="graph" viewBox="0 0 500 200" preserveAspectRatio="xMidYMid meet">
+
+                    <g class="grid">
+                        <line x1="50" y1="20" x2="450" y2="20" stroke="#eee"/>
+                        <line x1="50" y1="80" x2="450" y2="80" stroke="#eee"/>
+                        <line x1="50" y1="140" x2="450" y2="140" stroke="#eee"/>
+                    </g>
+
+                    <line x1="50" y1="170" x2="450" y2="170" stroke="#ccc"/>
+                    <line x1="50" y1="20" x2="50" y2="170" stroke="#ccc"/>
+
+                    <text x="35" y="25" font-size="12" text-anchor="end">-3.25</text>
+                    <text x="35" y="85" font-size="12" text-anchor="end">-3.00</text>
+                    <text x="35" y="145" font-size="12" text-anchor="end">-2.75</text>
+
+                    <text x="90"  y="190" font-size="12" text-anchor="middle">2017 (18)</text>
+                    <text x="170" y="190" font-size="12" text-anchor="middle">2018 (19)</text>
+                    <text x="250" y="190" font-size="12" text-anchor="middle">2019 (20)</text>
+                    <text x="330" y="190" font-size="12" text-anchor="middle">2020 (21)</text>
+                    <text x="410" y="190" font-size="12" text-anchor="middle">2021 (22)</text>
+
+                    <polyline 
+                        points="90,110 170,95 250,80 330,65 410,50"
+                        fill="none" 
+                        stroke="#0066cc" 
+                        stroke-width="3" 
+                        stroke-linecap="round"/>
+                    
+                    <circle cx="90"  cy="110" r="5" fill="#0066cc"/>
+                    <circle cx="170" cy="95"  r="5" fill="#0066cc"/>
+                    <circle cx="250" cy="80"  r="5" fill="#0066cc"/>
+                    <circle cx="330" cy="65"  r="5" fill="#0066cc"/>
+                    <circle cx="410" cy="50"  r="5" fill="#0066cc"/>
+                </svg>
+            </div>
+
+            <div class="graph-container">
+                <p class="graph-title">Højre øje (Styrke)</p>
+                <svg class="graph" viewBox="0 0 500 200" preserveAspectRatio="xMidYMid meet">
+
+                    <g class="grid">
+                        <line x1="50" y1="20" x2="450" y2="20" stroke="#eee"/>
+                        <line x1="50" y1="80" x2="450" y2="80" stroke="#eee"/>
+                        <line x1="50" y1="140" x2="450" y2="140" stroke="#eee"/>
+                    </g>
+
+                    <line x1="50" y1="170" x2="450" y2="170" stroke="#ccc"/>
+                    <line x1="50" y1="20" x2="50" y2="170" stroke="#ccc"/>
+
+                    <text x="35" y="25" font-size="12" text-anchor="end">-3.25</text>
+                    <text x="35" y="85" font-size="12" text-anchor="end">-3.00</text>
+                    <text x="35" y="145" font-size="12" text-anchor="end">-2.75</text>
+
+                    <text x="90"  y="190" font-size="12" text-anchor="middle">2017 (18)</text>
+                    <text x="170" y="190" font-size="12" text-anchor="middle">2018 (19)</text>
+                    <text x="250" y="190" font-size="12" text-anchor="middle">2019 (20)</text>
+                    <text x="330" y="190" font-size="12" text-anchor="middle">2020 (21)</text>
+                    <text x="410" y="190" font-size="12" text-anchor="middle">2021 (22)</text>
+
+                    <polyline 
+                        points="90,110 170,95 250,80 330,65 410,50"
+                        fill="none" 
+                        stroke="#009933" 
+                        stroke-width="3" 
+                        stroke-linecap="round"/>
+                    
+                    <circle cx="90"  cy="110" r="5" fill="#009933"/>
+                    <circle cx="170" cy="95"  r="5" fill="#009933"/>
+                    <circle cx="250" cy="80"  r="5" fill="#009933"/>
+                    <circle cx="330" cy="65"  r="5" fill="#009933"/>
+                    <circle cx="410" cy="50"  r="5" fill="#009933"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Månedligt spørgeskema -->
+        <div class="spørgeskema-wrapper">
+
+            <div class="spørgeskema-container">
+                <h3>Månedligt øjensundheds-spørgeskema</h3>
+                <p class="spørgeskema-intro">Svar på et par spørgsmål for at få mere personlige tips.</p>
+
+                <!-- Kort 1 -->
+                <div class="question-card" id="q1">
+                    <p class="question-text">Hvor mange timer om dagen bruger du typisk på skærm (mobil/computer)?</p>
+                    <div class="options">
+                        <button class="option-btn" data-next="q2">Mindre end 4 timer</button>
+                        <button class="option-btn" data-next="q2">4–8 timer</button>
+                        <button class="option-btn" data-next="q2">8–12 timer</button>
+                        <button class="option-btn" data-next="q2">Mere end 12 timer</button>
+                    </div>
+                </div>
+
+                <!-- Kort 2 -->
+                <div class="question-card hidden" id="q2">
+                    <p class="question-text">Hvor ofte bruger du kontaktlinser ugenligt?</p>
+                    <div class="options">
+                        <button class="option-btn" data-next="q3">1-2 gange</button>
+                        <button class="option-btn" data-next="q3">3-4 gange</button>
+                        <button class="option-btn" data-next="q3">4-5 gange</button>
+                        <button class="option-btn" data-next="q3">6-7 gange</button>
+                    </div>
+                </div>
+
+                <!-- Kort 3 -->
+                <div class="question-card hidden" id="q3">
+                    <p class="question-text">Oplever du ofte tørre øjne?</p>
+                    <div class="options">
+                        <button class="option-btn" data-next="q4">Aldrig</button>
+                        <button class="option-btn" data-next="q4">Sjældent</button>
+                        <button class="option-btn" data-next="q4">Ofte</button>
+                        <button class="option-btn" data-next="q4">Hver dag</button>
+                    </div>
+                </div>
+
+                <!-- Kort 4 -->
+                <div class="question-card hidden" id="q4">
+                    <p class="question-text">Har du trætte øjne efter lange skærmtider om aftenen?</p>
+                    <div class="options">
+                        <button class="option-btn" data-next="end">Nej</button>
+                        <button class="option-btn" data-next="end">Ja, let</button>
+                        <button class="option-btn" data-next="end">Ja, moderat</button>
+                        <button class="option-btn" data-next="end">Ja, kraftigt</button>
+                    </div>
+                </div>
+
+                <!-- Afslutning / Tak -->
+                <div class="question-card hidden" id="end">
+                    <p class="tak">Tak for dine svar! <br>Dine personlige tips opdateres nu.</p>
+                    <button class="restart-btn">Start forfra</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Personlige tips -->
+        <div class="tips-wrapper">
+
+            <div class="tips-container">
+
+                <h3>Dine personlige øjensundhedstips</h3>
+                <p class="tips-intro">Baserede på dine historiske svar</p>
+
+                <ul class="tips-list">
+                    <li><span>- Brug kunstige tårer ved tørre øjne.</span></li>
+                    <li><span>- Reducér blåt lys med briller med blåt lys filter.</span></li>
+                    <li><span>- Drik rigeligt vand dagligt.</span></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Checkliste -->
+        <div class="checklist-wrapper">
+
+            <div class="checklist-container">
+
+                <h3>Daglige mål</h3>
+                <p class="checklist-intro">Tjek af når du har udført opgaven</p>
+
+                <div class="checklist">
+                    <label class="check-label"><input type="checkbox" name="task1"><span>Brugt kunstige tårer ved behov</span></label>
+                    <label class="check-label"><input type="checkbox" name="task2"><span>Skærmtid under 8 timer i alt</span></label>
+                    <label class="check-label"><input type="checkbox" name="task3"><span>Drik 2 liter vand</span></label>
+                </div>
+
+                <div class="streak-section">
+                    <div class="flame-icon">🔥</div>
+                    <p class="streak-text">Aktuel streak: <span id="streak-count">3</span> dage</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <div class="bottom-nav">
+            <a href="dashboard.html" class="nav-item"><img src="icons/home.svg" class="nav-icon"></a>
+            <a href="ojensundhed.html" class="nav-item active"><img src="icons/hospital.svg" class="nav-icon"></a>
+            <a href="prov-brille.html" class="nav-item"><img src="icons/camera.svg" class="nav-icon"></a>
+            <a href="nyheder.html" class="nav-item"><img src="icons/newspaper.svg" class="nav-icon"></a>
+        </div>
+
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const buttons = document.querySelectorAll(".option-btn");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+
+                const currentCard = this.closest(".question-card");
+
+                currentCard.classList.add("hidden");
+
+                const nextId = this.getAttribute("data-next");
+                const nextCard = document.getElementById(nextId);
+                
+                if (nextCard) {
+                    nextCard.classList.remove("hidden");
+                }
+            });
+        });
+
+        const restartBtn = document.querySelector(".restart-btn");
+        if (restartBtn) {
+            restartBtn.addEventListener("click", function() {
+
+                document.querySelectorAll(".question-card").forEach(card => {
+                    card.classList.add("hidden");
+                });
+                document.getElementById("q1").classList.remove("hidden");
+            });
+        }
+    });
+</script>
+</body>
+</html>
